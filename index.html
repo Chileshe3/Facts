@@ -30,43 +30,122 @@
       line-height: 1.6;
     }
 
-    /* Modern Header */
-    header {
-      background: var(--primary);
-      padding: 1.5rem;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      transition: var(--transition);
-    }
+    /* Header Styles */
+   header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
 
     header.scrolled {
       padding: 1rem;
       background: rgba(42, 67, 101, 0.95);
       backdrop-filter: blur(10px);
     }
+    body {
+  padding-top: 80px;
+}
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+/* Logo Styles */
+.logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+}
 
-    .header-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+.logo svg {
+  height: 48px;
+  width: 160px;
+  transition: transform 0.3s ease;
+}
+
+    .logo:hover svg {
+     transform: scale(1.05);
+
+}
+.welcome-message {
+  width: 100%;
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.welcome-message p {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: #4A5568;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Ensures text remains readable but not too large on mobile */
+@media screen and (max-width: 640px) {
+  .welcome-message {
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  .welcome-message p {
+    font-size: 1.1rem;
+  }
+}
+    /* Search Bar Styles */
+    .search-container {
+      flex: 1;
+      max-width: 400px;
+      position: relative;
     }
 
-    .logo {
-      font-size: 2rem;
-      color: var(--accent);
-      font-weight: 700;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+    .search-bar {
+      width: 100%;
+      padding: 0.75rem 2.5rem;
+      border: none;
+      border-radius: 0.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 1rem;
+      transition: var(--transition);
     }
 
-    /* Modern Navigation */
+    .search-bar::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .search-bar:focus {
+      outline: none;
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .mobile-search {
+      display: none;
+      width: 100%;
+      margin: 1rem 0;
+    }
+
+    /* Navigation Styles */
     .nav-toggle {
       display: none;
       font-size: 1.5rem;
@@ -79,6 +158,7 @@
     .nav-menu {
       display: flex;
       gap: 2rem;
+      align-items: center;
     }
 
     .nav-menu a {
@@ -104,18 +184,18 @@
       width: 100%;
     }
 
-    /* Modern Hero Carousel */
+    /* Carousel Styles */
     .carousel-container {
       margin-top: 80px;
       position: relative;
       overflow: hidden;
-      height: 0vh;
+      height: 60vh;
       min-height: 400px;
     }
 
     .carousel {
       position: relative;
-      height: 60%;
+      height: 100%;
     }
 
     .carousel-slide {
@@ -123,7 +203,7 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
+      height: 80%;
       opacity: 0;
       transition: opacity 0.8s ease-in-out;
       display: flex;
@@ -175,7 +255,7 @@
       transform: scale(1.2);
     }
 
-    /* Modern Facts Section */
+    /* Facts Section Styles */
     .facts-section {
       max-width: 1200px;
       margin: 4rem auto;
@@ -254,7 +334,7 @@
       transform: translateY(-2px);
     }
 
-    /* Modern Footer */
+    /* Footer Styles */
     footer {
       background: var(--primary);
       color: #fff;
@@ -316,6 +396,84 @@
       padding-top: 2rem;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
+    .category-trigger {
+            position: relative;
+            /* Inherits your existing nav link styles */
+        }
+
+        .category-panel {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100vw;
+            background: #1e3a8a;
+            padding: 0.75rem;
+            display: none;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-panel.active {
+            display: block;
+        }
+
+        .category-wrapper {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .category-scroll {
+            overflow-x: hidden;
+            cursor: grab;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .category-container {
+            display: flex;
+            gap: 1rem;
+            padding: 0.25rem 0;
+            user-select: none;
+        }
+
+        .category-item {
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            white-space: nowrap;
+            font-family: system-ui, -apple-system, sans-serif;
+            font-size: 0.9rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .category-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
+        }
+
+        .fade-left, .fade-right {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 50px;
+            pointer-events: none;
+        }
+
+        .fade-left {
+            left: 0;
+            background: linear-gradient(to right, #1e3a8a, transparent);
+        }
+
+        .fade-right {
+            right: 0;
+            background: linear-gradient(to left, #1e3a8a, transparent);
+        }
+
+        .category-scroll.active {
+            cursor: grabbing;
+        }
 
     /* Back to Top Button */
     .back-to-top {
@@ -342,10 +500,40 @@
       visibility: visible;
     }
 
+    /* Newsletter Form */
+    .newsletter-form input {
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      border: none;
+      margin-top: 1rem;
+      width: 100%;
+    }
+
     /* Responsive Design */
     @media (max-width: 768px) {
       .nav-toggle {
         display: block;
+      }
+      header-content .search-container {
+        display: none; /* Hide desktop search */
+      }
+      .mobile-search {
+        display: block !important; /* Show mobile search */
+        width: 100%;
+        padding: 1rem;
+      }
+
+      .mobile-search .search-container {
+        display: block !important; /* Show search container in mobile */
+        max-width: 100%;
+      }
+
+      .search-container {
+        display: none;
+      }
+
+      .mobile-search {
+        display: none;
       }
 
       .nav-menu {
@@ -359,6 +547,7 @@
         align-items: center;
         padding: 2rem;
         transition: var(--transition);
+        overflow-y: auto;
       }
 
       .nav-menu.active {
@@ -380,24 +569,89 @@
   <header>
     <div class="header-content">
       <a href="#" class="logo">
-        <i class="fas fa-lightbulb"></i>
-        DYN
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120">
+          <!-- Logo SVG content remains the same -->
+          <defs>
+            <linearGradient id="dynamicGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#FF416C"/>
+              <stop offset="100%" style="stop-color:#FF4B2B"/>
+            </linearGradient>
+          </defs>
+          <path d="M 30 80 C 100 80, 150 20, 370 20" 
+                stroke="url(#dynamicGradient)" 
+                stroke-width="3" 
+                fill="none"/>
+          <text x="50" y="65" 
+                font-family="Arial" 
+                font-weight="bold" 
+                font-size="48">
+            <tspan fill="#2D3748" style="font-style: italic">Fact</tspan>
+            <tspan fill="#FF416C" style="font-style: italic">Feined</tspan>
+          </text>
+        </svg>
       </a>
+
+      <!-- Desktop Search now centered -->
+      <div class="search-container">
+        <input type="search" class="search-bar" placeholder="Search...">
+        <i class="fas fa-search search-icon"></i>
+      </div>
+
       <button class="nav-toggle">
         <i class="fas fa-bars"></i>
       </button>
+
       <nav class="nav-menu">
+        <!-- Mobile Search -->
+        <div class="mobile-search">
+          <div class="search-container">
+            <input type="search" class="search-bar" placeholder="Search...">
+            <i class="fas fa-search search-icon"></i>
+          </div>
+        </div>
+
         <a href="#facts">Facts</a>
         <a href="#about">About</a>
+        <a href="#" class="category-trigger">Categories</a>
         <a href="#contact">Contact</a>
         <a href="#newsletter">Newsletter</a>
         <a href="#quiz">Quiz</a>
         <a href="#sign">Sign up</a>
-        
         <a href="#chileshe">Chileshe Besa</a>
       </nav>
+      
+      
+
+      <!-- Category Panel -->
+      <div class="category-panel">
+        <!-- Category panel content remains the same -->
+        <div class="category-wrapper">
+          <div class="fade-left"></div>
+          <div class="category-scroll">
+            <div class="category-container">
+              <div class="category-item">Electronics</div>
+              <div class="category-item">Fashion</div>
+              <div class="category-item">Home & Garden</div>
+              <div class="category-item">Sports</div>
+              <div class="category-item">Books</div>
+              <div class="category-item">Toys & Games</div>
+              <div class="category-item">Health & Beauty</div>
+              <div class="category-item">Automotive</div>
+              <div class="category-item">Pet Supplies</div>
+              <div class="category-item">Office Products</div>
+              <div class="category-item">Food & Grocery</div>
+            </div>
+          </div>
+          <div class="fade-right"></div>
+        </div>
+      </div>
     </div>
   </header>
+        
+<div class="welcome-message">
+    <h2>Did you know your next 'aha' moment could be just a click away? Start exploring now."</h2>
+</div>
+
 
   <!-- Hero Carousel -->
   <div class="carousel-container">
@@ -454,142 +708,96 @@
   <section class="facts-section" id="facts">
     <h2 class="section-title" data-aos="fade-up">Did You Know?</h2>
     <div class="facts-grid">
-      <!-- Fact Cards -->
+      <!-- Fact Card 1 -->
       <div class="fact-card" data-aos="fade-up">
-        <img src="IMG-20241220-WA0000.jpg" alt="on_Mars" class="fact-image">
+        <img src="/api/placeholder/400/300" alt="Space Fact" class="fact-image">
         <div class="fact-content">
-          <h3 class="fact-title">A day on Mars is longer than a year on Mars!</h3>
+          <h3 class="fact-title">A day on Mars is longer than a year on Mars</antArtifact>
           <button class="read-more-btn">Read More</button>
           <div class="fact-details">
-            <p>Mars has a day length of about 24 hours and 39 minutes, while a full year on Mars (the time it takes to orbit the Sun) lasts 687 Earth days. This means that a single day on Mars is slightly longer than a full Martian year! It’s one of the many intriguing facts about our red neighbor that makes it so fascinating.</p>
-          </div>
-        </div>
-      </div>
-      
-     <div class="fact-card" data-aos="fade-up" data-aos-delay="100">
-        <img src="IMG-20241220-WA0001.jpg" alt="Toung_testing" class="fact-image">
-        <div class="fact-content">
-          <h3 class="fact-title">Your tongue isn’t the only part of your body that can taste!</h3>
-          <button class="read-more-btn">Read More</button>
-          <div class="fact-details">
-            <p>While most people think the tongue is the sole organ responsible for taste, your mouth and throat also play a role. Receptors in the roof of your mouth and throat help you experience different flavors. So, the next time you savor your favorite food, remember it’s not just your tongue doing all the work!</p>
+            <p>Mars has a day length of about 24 hours and 39 minutes, while a full year on Mars (the time it takes to orbit the Sun) lasts 687 Earth days. This means that a single day on Mars is slightly longer than a full Martian year! It's one of the many intriguing facts about our red neighbor that makes it so fascinating.</p>
           </div>
         </div>
       </div>
 
-
-
-
-
+      <!-- Fact Card 2 -->
       <div class="fact-card" data-aos="fade-up" data-aos-delay="100">
-        <img src="IMG" alt="Hot  water freezes faster than cold water" class="fact-image">
+        <img src="/api/placeholder/400/300" alt="Human Body Fact" class="fact-image">
         <div class="fact-content">
-          <h3 class="fact-title">Hot water freezes faster than cold water!</h3>
+          <h3 class="fact-title">Your tongue isn't the only part of your body that can taste!</h3>
           <button class="read-more-btn">Read More</button>
           <div class="fact-details">
-            <p> 
-              
-              This strange phenomenon is called the Mpemba Effect, named after Erasto Mpemba, a Tanzanian student who noticed it in the 1960s while making ice cream in class. When he mixed hot milk and sugar, it froze faster than the cold mixture. His classmates laughed at him until scientists confirmed he was right.   </p>
-              <b>Why does this happen?</b>
-            <p>No one knows for sure (even scientists are scratching their heads), but here are some possible explanations:</p>
-            <b>1. Evaporation</b>
-              When hot water cools, some of it evaporates, reducing the amount of water left to freeze. Less water = faster freezing.</p>
-            <p>
-            <b>2. Convection currents</b>
-              Hot water moves around more as it cools, distributing heat more evenly and speeding up freezing. Cold water just sits there, being lazy. </p>
-            <p>
-              <b>3. Supercooling</b> 
-              Cold water can sometimes "overthink" freezing and stay liquid even when it’s below freezing temperature. Hot water doesn’t bother with that drama and gets to freezing quicker</p>
-          <p> 
-            <b>4. Dissolved gases</b>
-
-Hot water loses dissolved gases (like oxygen) as it heats, which might make it easier to freeze. Cold water holds onto its gas like it's saving it for a rainy day. </p>
-        <p>This doesn’t always happen—it depends on conditions like container shape, water purity, and your freezer’s mood. So, while it’s true, it’s also one of nature’s quirks that keeps us guessing.
-
-Still, next time someone doubts you, just say, "Science says I’m right!"</p> 
-          </p>
+            <p>While most people think the tongue is the sole organ responsible for taste, your mouth and throat also play a role. Receptors in the roof of your mouth and throat help you experience different flavors. So, the next time you savor your favorite food, remember it's not just your tongue doing all the work!</p>
           </div>
         </div>
       </div>
-      
-      
-      
+
+      <!-- Fact Card 3 -->
       <div class="fact-card" data-aos="fade-up" data-aos-delay="100">
-        <img src="IMG_20241220_220738.jpg" alt="Shotest_war" class="fact-image">
+        <img src="/api/placeholder/400/300" alt="History Fact" class="fact-image">
         <div class="fact-content">
-          <h3 class="fact-title">The shortest war in history lasted just 4 minutes! </h3>
+          <h3 class="fact-title">The shortest war in history lasted just 4 minutes!</h3>
           <button class="read-more-btn">Read More</button>
           <div class="fact-details">
-            <p>This incredibly brief conflict took place between Britain and Zanzibar on August 27, 1896. Zanzibar’s Sultan Khalid bin Barghash refused to step down after Britain’s demands, so the British launched a quick bombardment. The Sultan’s palace was destroyed, and after just four minutes of fighting, he surrendered, making it the shortest recorded war in history!</p>
+            <p>This incredibly brief conflict took place between Britain and Zanzibar on August 27, 1896. Zanzibar's Sultan Khalid bin Barghash refused to step down after Britain's demands, so the British launched a quick bombardment. The Sultan's palace was destroyed, and after just four minutes of fighting, he surrendered, making it the shortest recorded war in history!</p>
           </div>
         </div>
       </div>
-      
-      
-     <div class="fact-card" data-aos="fade-up" data-aos-delay="100">
-        <img src="/api/placeholder/400/300" alt="Black Holes" class="fact-image">
+
+      <!-- Fact Card 4 -->
+      <div class="fact-card" data-aos="fade-up" data-aos-delay="100">
+        <img src="/api/placeholder/400/300" alt="Biology Fact" class="fact-image">
         <div class="fact-content">
           <h3 class="fact-title">You blink 28,000 times a day!</h3>
           <button class="read-more-btn">Read More</button>
           <div class="fact-details">
-            <p>On average, you blink about 15-20 times per minute, which adds up to over 28,000 blinks every single day. It’s a small but important action that helps keep your eyes moist and protected from dust. Blinking might seem simple, but it’s doing a lot of work behind the scenes!</p>
+            <p>On average, you blink about 15-20 times per minute, which adds up to over 28,000 blinks every single day. It's a small but important action that helps keep your eyes moist and protected from dust. Blinking might seem simple, but it's doing a lot of work behind the scenes!</p>
           </div>
         </div>
       </div>
-      
-      
-      
-      
 
+        <!-- Fact Card 5 -->
       <div class="fact-card" data-aos="fade-up" data-aos-delay="100">
-        <img src="/api/placeholder/400/300" alt="Black Holes" class="fact-image">
+        <img src="/api/placeholder/400/300" alt="History Fact" class="fact-image">
         <div class="fact-content">
           <h3 class="fact-title">Approx. 99% of human history is unrecorded!</h3>
           <button class="read-more-btn">Read More</button>
           <div class="fact-details">
             <p>
-               <p>
-                <i>
-              Scientifically,
-              </i>
-               humans have existed for around 300,000 years, but written history only started about 5,000 years ago. That means 295,000 years of human history is essentially guesswork based on fossils and artifacts!
-               </p>
-               <p>
-               <i>
-               Biblically, 
-               </i>
-               
-               the Earth is believed to be about 6,000 years old, starting with Adam and Eve. But even in this framework, a lot of early history wasn’t written down—imagine how much was forgotten during all those centuries before papyrus, scrolls, or quills came into the picture.
-               </p>
-               <P>
-               Whether you're Team Science or Team Bible, one thing’s for sure: we've lost a lot of stories along the way!
-               </p>
+              <i>Scientifically,</i> humans have existed for around 300,000 years, but written history only started about 5,000 years ago. That means 295,000 years of human history is essentially guesswork based on fossils and artifacts!
+            </p>
+            <p>
+              <i>Biblically,</i> the Earth is believed to be about 6,000 years old, starting with Adam and Eve. But even in this framework, a lot of early history wasn't written down—imagine how much was forgotten during all those centuries before papyrus, scrolls, or quills came into the picture.
+            </p>
+            <p>
+              Whether you're Team Science or Team Bible, one thing's for sure: we've lost a lot of stories along the way!
             </p>
           </div>
         </div>
       </div>
 
+      <!-- Fact Card 6 -->
       <div class="fact-card" data-aos="fade-up" data-aos-delay="200">
-        <img src="/api/placeholder/400/300" alt="Space Time" class="fact-image">
+        <img src="/api/placeholder/400/300" alt="Marine Biology Fact" class="fact-image">
         <div class="fact-content">
           <h3 class="fact-title">Octopuses have three hearts!</h3>
           <button class="read-more-btn">Read More</button>
           <div class="fact-details">
-            <p>Two of the hearts pump blood to the gills, while the third pumps it to the rest of the body. Wwhen an octopus swims, the heart that delivers blood to the body actually stops beating! So, these incredible creatures have to work extra hard just to move around. Talk about multitasking!</p>
+            <p>Two of the hearts pump blood to the gills, while the third pumps it to the rest of the body. When an octopus swims, the heart that delivers blood to the body actually stops beating! So, these incredible creatures have to work extra hard just to move around. Talk about multitasking!</p>
           </div>
         </div>
       </div>
-    
-    
-       <div class="fact-card" data-aos="fade-up" data-aos-delay="200">
-         <div class="fact-content">
-           <h3 class="fact-title">Find out more</h3>
-           <button class="read-more-btn">Load More</button>
-           </div>
-       </div>
+
+      <!-- Load More Card -->
+      <div class="fact-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="fact-content">
+          <h3 class="fact-title">Find out more</h3>
+          <button class="read-more-btn">Load More</button>
+        </div>
+      </div>
+    </div>
   </section>
-  
-  <!-- Hero Carousel -->
+   <!-- Hero Carousel -->
   <div class="carousel-container">
     <div class="carousel">
       <div class="carousel-slide active" style="background-image: url('/api/placeholder/1920/1080')>
@@ -639,6 +847,7 @@ Still, next time someone doubts you, just say, "Science says I’m right!"</p>
       <div class="carousel-dot"></div>
     </div>
   </div>
+  
 
   <!-- Footer -->
   <footer>
@@ -653,16 +862,28 @@ Still, next time someone doubts you, just say, "Science says I’m right!"</p>
           <a href="#"><i class="fab fa-youtube"></i></a>
         </div>
       </div>
-      
+
       <div class="footer-section">
         <h3>Quick Links</h3>
         <ul class="footer-links">
-        <li><a href="#facts">Facts</a></li>
+          <li><a href="#facts">Facts</a></li>
           <li><a href="#about">About Us</a></li>
           <li><a href="#contact">Contact</a></li>
           <li><a href="#privacy">Privacy Policy</a></li>
           <li><a href="#terms">Terms of Use</a></li>
           <li><a href="#advertise">Advertise</a></li>
+          <li><a href="#advertise">Advertise</a></li>
+          <li><a href="#advertise">Technology</a></li>
+          <li><a href="#advertise">History</a></li>
+          <li><a href="#advertise">Earth</a></li>
+          <li><a href="#advertise">Traveling</a></li>
+          <li><a href="#advertise">Business</a></li>
+          <li><a href="#advertise">Artificial Intelligence</a></li>
+          <li><a href="#advertise">Weather</a></li>
+          <li><a href="#advertise">Nature</a></li>
+          <li><a href="#advertise">Science</a></li>
+          <li><a href="#advertise">Market</a></li>
+          <li><a href="#advertise">Survival</a></li>
         </ul>
       </div>
 
@@ -670,8 +891,8 @@ Still, next time someone doubts you, just say, "Science says I’m right!"</p>
         <h3>Newsletter</h3>
         <p>Subscribe to our newsletter for daily fascinating facts!</p>
         <form class="newsletter-form">
-          <input type="email" placeholder="Enter your email" class="newsletter-input" style="padding: 0.75rem; border-radius: 0.5rem; border: none; margin-top: 1rem; width: 100%;">
-          <button type="submit" class="read-more-btn" style="margin-top: 1rem; width: 100%;">Subscribe</button>
+          <input type="email" placeholder="Enter your email" class="newsletter-input"</input>
+          <button type="submit" class="read-more-btn">Subscribe</button>
         </form>
       </div>
     </div>
@@ -679,7 +900,7 @@ Still, next time someone doubts you, just say, "Science says I’m right!"</p>
     <div class="footer-bottom">
       <p>&copy; 2024 Did You Know. All rights reserved.</p>
       <p>&copy; Chileshe Besa</p>
-      <p>Email@chilesheb129@gmail.com
+      <p>Email: chilesheb129@gmail.com</p>
     </div>
   </footer>
 
@@ -750,8 +971,10 @@ Still, next time someone doubts you, just say, "Science says I’m right!"</p>
     document.querySelectorAll('.read-more-btn').forEach(button => {
       button.addEventListener('click', () => {
         const details = button.closest('.fact-content').querySelector('.fact-details');
-        details.classList.toggle('active');
-        button.textContent = details.classList.contains('active') ? 'Read Less' : 'Read More';
+        if (details) {
+          details.classList.toggle('active');
+          button.textContent = details.classList.contains('active') ? 'Read Less' : 'Read More';
+        }
       });
     });
 
@@ -773,20 +996,107 @@ Still, next time someone doubts you, just say, "Science says I’m right!"</p>
       });
     });
 
-    // Newsletter Form
-    const newsletterForm = document.querySelector('.newsletter-form');
-    
-    newsletterForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const email = newsletterForm.querySelector('input').value;
-      if (email) {
-        // Add your newsletter subscription logic here
-        alert('Thank you for subscribing!');
-        newsletterForm.reset();
-      }
+    // Search Functionality
+    document.querySelectorAll('.search-bar').forEach(searchBar => {
+      searchBar.addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+        const factCards = document.querySelectorAll('.fact-card');
+        
+        factCards.forEach(card => {
+          const title = card.querySelector('.fact-title')?.textContent.toLowerCase() || '';
+          const details = card.querySelector('.fact-details')?.textContent.toLowerCase() || '';
+          
+          if (title.includes(searchTerm) || details.includes(searchTerm)) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+   // Category panel toggle
+    const categoryTrigger = document.querySelector('.category-trigger');
+    const categoryPanel = document.querySelector('.category-panel');
+
+    categoryTrigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        categoryPanel.classList.toggle('active');
     });
 
-    // Smooth Scroll for Navigation Links
+    // Close panel when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!categoryTrigger.contains(e.target) && !categoryPanel.contains(e.target)) {
+            categoryPanel.classList.remove('active');
+        }
+    });
+
+    // Draggable functionality
+    const categoryScroll = document.querySelector('.category-scroll');
+    const categoryContainer = document.querySelector('.category-container');
+    
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    categoryScroll.addEventListener('mousedown', (e) => {
+        isDown = true;
+        categoryScroll.classList.add('active');
+        startX = e.pageX - categoryScroll.offsetLeft;
+        scrollLeft = categoryScroll.scrollLeft;
+    });
+
+    categoryScroll.addEventListener('mouseleave', () => {
+        isDown = false;
+        categoryScroll.classList.remove('active');
+    });
+
+    categoryScroll.addEventListener('mouseup', () => {
+        isDown = false;
+        categoryScroll.classList.remove('active');
+    });
+
+    categoryScroll.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - categoryScroll.offsetLeft;
+        const walk = (x - startX) * 2;
+        categoryScroll.scrollLeft = scrollLeft - walk;
+    });
+
+    // Touch events
+    categoryScroll.addEventListener('touchstart', (e) => {
+        isDown = true;
+        categoryScroll.classList.add('active');
+        startX = e.touches[0].pageX - categoryScroll.offsetLeft;
+        scrollLeft = categoryScroll.scrollLeft;
+    });
+
+    categoryScroll.addEventListener('touchend', () => {
+        isDown = false;
+        categoryScroll.classList.remove('active');
+    });
+
+    categoryScroll.addEventListener('touchmove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.touches[0].pageX - categoryScroll.offsetLeft;
+        const walk = (x - startX) * 2;
+        categoryScroll.scrollLeft = scrollLeft - walk;
+    });
+    // Newsletter Form
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = newsletterForm.querySelector('input').value;
+        if (email) {
+          alert('Thank you for subscribing!');
+          newsletterForm.reset();
+        }
+      });
+    }
+
+    // Smooth Scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -803,22 +1113,7 @@ Still, next time someone doubts you, just say, "Science says I’m right!"</p>
         }
       });
     });
-
-    // Add loading animation for images
-    document.querySelectorAll('img').forEach(img => {
-      img.addEventListener('load', function() {
-        this.style.animation = 'fadeIn 0.5s ease-in';
-      });
-    });
-
-    // Prevent form submission on enter key
-    document.querySelectorAll('form').forEach(form => {
-      form.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-          e.preventDefault();
-        }
-      });
-    });
   </script>
 </body>
 </html>
+    
