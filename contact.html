@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | FactFeined</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2a4365;
+      --secondary: #ed8936;
+      --accent: #fbd38d;
+      --background: #f7fafc;
+      --text: #2d3748;
+      --card-bg: #fff;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+      padding-top: 80px;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 0;
+    }
+
+    .logo svg {
+      height: 48px;
+      width: 160px;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover svg {
+      transform: scale(1.05);
+    }
+
+    .contact-hero {
+      background: linear-gradient(rgba(42, 67, 101, 0.9), rgba(42, 67, 101, 0.8)),
+                  url('/api/placeholder/1920/400');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .contact-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+
+    .contact-hero p {
+      font-size: 1.25rem;
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+
+    .contact-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    .contact-info {
+      padding: 2rem;
+    }
+
+    .contact-card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .contact-card i {
+      font-size: 1.5rem;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+    }
+
+    .contact-form {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--secondary);
+      box-shadow: 0 0 0 3px rgba(237, 137, 54, 0.2);
+    }
+
+    .submit-btn {
+      background: var(--secondary);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .submit-btn:hover {
+      background: #dd6b20;
+      transform: translateY(-2px);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-links a {
+      color: var(--primary);
+      font-size: 1.5rem;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      color: var(--secondary);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .contact-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .contact-hero h1 {
+        font-size: 2rem;
+      }
+
+      .contact-hero p {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <a href="#" class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120">
+          <defs>
+            <linearGradient id="dynamicGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#FF416C"/>
+              <stop offset="100%" style="stop-color:#FF4B2B"/>
+            </linearGradient>
+          </defs>
+          <path d="M 30 80 C 100 80, 150 20, 370 20" 
+                stroke="url(#dynamicGradient)" 
+                stroke-width="3" 
+                fill="none"/>
+          <text x="50" y="65" 
+                font-family="Arial" 
+                font-weight="bold" 
+                font-size="48">
+            <tspan fill="#2D3748" style="font-style: italic">Fact</tspan>
+            <tspan fill="#FF416C" style="font-style: italic">Feined</tspan>
+          </text>
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <section class="contact-hero" data-aos="fade-up">
+    <h1>Get in Touch</h1>
+    <p>Have a question or want to contribute? We'd love to hear from you!</p>
+  </section>
+
+  <div class="contact-section">
+    <div class="contact-info">
+      <div class="contact-card" data-aos="fade-up">
+        <i class="fas fa-map-marker-alt"></i>
+        <h3>Our Location</h3>
+        <p>123 Knowledge Street<br>Curiosity City, CF 12345<br>United States</p>
+      </div>
+
+      <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
+        <i class="fas fa-envelope"></i>
+        <h3>Email Us</h3>
+        <p>info@factfeined.com<br>support@factfeined.com</p>
+      </div>
+
+      <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
+        <i class="fas fa-phone"></i>
+        <h3>Call Us</h3>
+        <p>+1 (555) 123-4567<br>Mon-Fri: 9:00 AM - 6:00 PM EST</p>
+      </div>
+
+      <div class="social-links">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+
+    <div class="contact-form" data-aos="fade-up">
+      <h2>Send Us a Message</h2>
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" required>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <footer style="background-color: var(--primary); color: white; text-align: center; padding: 1rem; margin-top: 2rem;">
+    <a href="index.html" style="color: var(--accent); text-decoration: none; margin-right: 1rem;">Back to Home</a>
+    ©2024 FactFeined. All rights reserved.
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      offset: 100,
+      once: true
+    });
+
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Form submission handler
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Add your form submission logic here
+      alert('Thank you for your message! We will get back to you soon.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
