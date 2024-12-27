@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy | FactFeined</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2a4365;
+      --secondary: #ed8936;
+      --accent: #fbd38d;
+      --background: #f7fafc;
+      --text: #2d3748;
+      --card-bg: #fff;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+      padding-top: 80px;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 0;
+    }
+
+    .logo svg {
+      height: 48px;
+      width: 160px;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover svg {
+      transform: scale(1.05);
+    }
+
+    .privacy-hero {
+      background: linear-gradient(rgba(42, 67, 101, 0.9), rgba(42, 67, 101, 0.8)),
+                  url('/api/placeholder/1920/400');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .privacy-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+
+    .privacy-hero p {
+      font-size: 1.25rem;
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+
+    .privacy-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .privacy-section {
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: white;
+      border-radius: 0.5rem;
+      transition: var(--transition);
+    }
+
+    .privacy-section:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .privacy-section h2 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 0.5rem;
+    }
+
+    .privacy-section h3 {
+      color: var(--secondary);
+      margin: 1.5rem 0 1rem;
+      font-size: 1.4rem;
+    }
+
+    .privacy-section p {
+      margin-bottom: 1rem;
+    }
+
+    .privacy-section ul {
+      margin-bottom: 1rem;
+      padding-left: 1.5rem;
+    }
+
+    .privacy-section li {
+      margin-bottom: 0.5rem;
+    }
+
+    .last-updated {
+      text-align: center;
+      color: var(--text);
+      opacity: 0.8;
+      margin-top: 2rem;
+      font-style: italic;
+    }
+
+    .table-of-contents {
+      background: var(--background);
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .table-of-contents h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .table-of-contents ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .table-of-contents li {
+      margin-bottom: 0.5rem;
+    }
+
+    .table-of-contents a {
+      color: var(--secondary);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .table-of-contents a:hover {
+      color: var(--primary);
+      padding-left: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .privacy-hero h1 {
+        font-size: 2rem;
+      }
+
+      .privacy-hero p {
+        font-size: 1.1rem;
+      }
+
+      .privacy-section {
+        padding: 1.5rem;
+      }
+
+      .privacy-section h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <a href="#" class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120">
+          <defs>
+            <linearGradient id="dynamicGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#FF416C"/>
+              <stop offset="100%" style="stop-color:#FF4B2B"/>
+            </linearGradient>
+          </defs>
+          <path d="M 30 80 C 100 80, 150 20, 370 20" 
+                stroke="url(#dynamicGradient)" 
+                stroke-width="3" 
+                fill="none"/>
+          <text x="50" y="65" 
+                font-family="Arial" 
+                font-weight="bold" 
+                font-size="48">
+            <tspan fill="#2D3748" style="font-style: italic">Fact</tspan>
+            <tspan fill="#FF416C" style="font-style: italic">Feined</tspan>
+          </text>
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <section class="privacy-hero" data-aos="fade-up">
+    <h1>Privacy Policy</h1>
+    <p>Learn how we collect, use, and protect your information</p>
+  </section>
+
+  <div class="privacy-content">
+    <div class="table-of-contents" data-aos="fade-up">
+      <h3>Table of Contents</h3>
+      <ul>
+        <li><a href="#introduction">1. Introduction</a></li>
+        <li><a href="#information-collection">2. Information We Collect</a></li>
+        <li><a href="#information-use">3. How We Use Your Information</a></li>
+        <li><a href="#information-sharing">4. Information Sharing</a></li>
+        <li><a href="#data-security">5. Data Security</a></li>
+        <li><a href="#your-rights">6. Your Rights</a></li>
+        <li><a href="#cookies">7. Cookies Policy</a></li>
+        <li><a href="#changes">8. Changes to This Policy</a></li>
+        <li><a href="#contact">9. Contact Us</a></li>
+      </ul>
+    </div>
+
+    <section id="introduction" class="privacy-section" data-aos="fade-up">
+      <h2>1. Introduction</h2>
+      <p>At FactFeined, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services. Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site.</p>
+    </section>
+
+    <section id="information-collection" class="privacy-section" data-aos="fade-up">
+      <h2>2. Information We Collect</h2>
+      <h3>Personal Information</h3>
+      <p>We may collect personal information that you voluntarily provide to us when you:</p>
+      <ul>
+        <li>Register for an account</li>
+        <li>Sign up for our newsletter</li>
+        <li>Contact us through our contact form</li>
+        <li>Participate in contests or surveys</li>
+        <li>Comment on our articles</li>
+      </ul>
+
+      <h3>Automatically Collected Information</h3>
+      <p>When you visit our website, we automatically collect certain information about your device, including:</p>
+      <ul>
+        <li>IP address</li>
+        <li>Browser type</li>
+        <li>Operating system</li>
+        <li>Access times</li>
+        <li>Pages viewed</li>
+      </ul>
+    </section>
+
+    <section id="information-use" class="privacy-section" data-aos="fade-up">
+      <h2>3. How We Use Your Information</h2>
+      <p>We use the information we collect for various purposes, including:</p>
+      <ul>
+        <li>Providing and maintaining our website</li>
+        <li>Improving user experience</li>
+        <li>Analyzing how our website is used</li>
+        <li>Sending newsletters and updates</li>
+        <li>Responding to your inquiries</li>
+        <li>Preventing fraud and abuse</li>
+      </ul>
+    </section>
+
+    <section id="information-sharing" class="privacy-section" data-aos="fade-up">
+      <h2>4. Information Sharing</h2>
+      <p>We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except in the following cases:</p>
+      <ul>
+        <li>With service providers who assist in our operations</li>
+        <li>To comply with legal obligations</li>
+        <li>To protect our rights and safety</li>
+        <li>In connection with a business transfer or acquisition</li>
+      </ul>
+    </section>
+
+    <section id="data-security" class="privacy-section" data-aos="fade-up">
+      <h2>5. Data Security</h2>
+      <p>We implement appropriate technical and organizational security measures to protect your personal information. However, no method of transmission over the Internet or electronic storage is 100% secure, and we cannot guarantee absolute security.</p>
+    </section>
+
+    <section id="your-rights" class="privacy-section" data-aos="fade-up">
+      <h2>6. Your Rights</h2>
+      <p>You have the right to:</p>
+      <ul>
+        <li>Access your personal information</li>
+        <li>Correct inaccurate information</li>
+        <li>Request deletion of your information</li>
+        <li>Object to processing of your information</li>
+        <li>Withdraw consent</li>
+        <li>Request data portability</li>
+      </ul>
+    </section>
+
+    <section id="cookies" class="privacy-section" data-aos="fade-up">
+      <h2>7. Cookies Policy</h2>
+      <p>We use cookies and similar tracking technologies to improve your browsing experience. You can control cookies through your browser settings. By continuing to use our website, you consent to our use of cookies.</p>
+    </section>
+
+    <section id="changes" class="privacy-section" data-aos="fade-up">
+      <h2>8. Changes to This Policy</h2>
+      <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page and updating the "Last Updated" date.</p>
+    </section>
+
+    <section id="contact" class="privacy-section" data-aos="fade-up">
+      <h2>9. Contact Us</h2>
+      <p>If you have any questions about this Privacy Policy, please contact us at:</p>
+      <ul>
+        <li>Email: privacy@factfeined.com</li>
+        <li>Phone: +1 (555) 123-4567</li>
+        <li>Address: 123 Knowledge Street, Curiosity City, CF 12345, United States</li>
+      </ul>
+    </section>
+
+    <p class="last-updated">Last Updated: December 27, 2024</p>
+  </div>
+
+  <footer style="background-color: var(--primary); color: white; text-align: center; padding: 1rem; margin-top: 2rem;">
+    <a href="index.html" style="color: var(--accent); text-decoration: none; margin-right: 1rem;">Back to Home</a>
+    ©2024 FactFeined. All rights reserved.
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      offset: 100,
+      once: true
+    });
+
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
