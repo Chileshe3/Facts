@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | FactFeined</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2a4365;
+      --secondary: #ed8936;
+      --accent: #fbd38d;
+      --background: #f7fafc;
+      --text: #2d3748;
+      --card-bg: #fff;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+       header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+    header.scrolled {
+      padding: 1rem;
+      background: rgba(42, 67, 101, 0.95);
+      backdrop-filter: blur(10px);
+    }
+    body {
+  padding-top: 80px;
+}
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+/* Logo Styles */
+.logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.logo svg {
+  height: 48px;
+  width: 160px;
+  transition: transform 0.3s ease;
+}
+
+    .logo:hover svg {
+     transform: scale(1.05);
+
+}
+
+    /* Reuse your existing base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+      padding-top: 80px;
+    }
+
+    /* About Section Specific Styles */
+    .about-hero {
+      background: linear-gradient(rgba(42, 67, 101, 0.9), rgba(42, 67, 101, 0.8)),
+                  url('/api/placeholder/1920/600');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 6rem 2rem;
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .about-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+
+    .about-hero p {
+      font-size: 1.25rem;
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+
+    .about-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .mission-card {
+      background: var(--card-bg);
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
+    }
+
+    .mission-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .mission-card i {
+      font-size: 2.5rem;
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    .mission-card h3 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .stats-section {
+      background: var(--primary);
+      color: white;
+      padding: 4rem 2rem;
+      margin: 4rem 0;
+      text-align: center;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .stat-card {
+      padding: 2rem;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .values-section {
+      padding: 4rem 2rem;
+      background: white;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .value-card {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .value-card i {
+      font-size: 2rem;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+    }
+
+    .team-section {
+      padding: 4rem 2rem;
+      background: var(--background);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .about-hero h1 {
+        font-size: 2rem;
+      }
+
+      .about-hero p {
+        font-size: 1.1rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Reuse your existing header -->
+   <header>
+     <div class="header-content">
+      <a href="#" class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120">
+          <!-- Logo SVG content remains the same -->
+          <defs>
+            <linearGradient id="dynamicGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#FF416C"/>
+              <stop offset="100%" style="stop-color:#FF4B2B"/>
+            </linearGradient>
+          </defs>
+          <path d="M 30 80 C 100 80, 150 20, 370 20" 
+                stroke="url(#dynamicGradient)" 
+                stroke-width="3" 
+                fill="none"/>
+          <text x="50" y="65" 
+                font-family="Arial" 
+                font-weight="bold" 
+                font-size="48">
+            <tspan fill="#2D3748" style="font-style: italic">Fact</tspan>
+            <tspan fill="#FF416C" style="font-style: italic">Feined</tspan>
+          </text>
+        </svg>
+      </a>
+      </header>
+
+  <section class="about-hero" data-aos="fade-up">
+    <h1>About FactFeined</h1>
+    <p>The architect of curiosity.</p>
+  </section>
+
+  <section class="about-section">
+    <div class="mission-grid">
+      <div class="mission-card" data-aos="fade-up">
+        <i class="fas fa-lightbulb"></i>
+        <h3>Our Mission</h3>
+        <p>At FactFeined, We’re committed to making learning an engaging, accessible, and enjoyable experience for everyone.</p>
+      </div>
+
+      <div class="mission-card" data-aos="fade-up" data-aos-delay="100">
+        <i class="fas fa-book-open"></i>
+        <h3>What We Do</h3>
+        <p>We explore the extraordinary in the ordinary, uncovering fascinating facts across science, history, nature, technology, and more. Our team of passionate researchers and writers work tirelessly to bring you verified, interesting information that challenges perspectives and enriches minds.</p>
+      </div>
+    </div>
+  </section>
+<section class="stats-section" data-aos="fade-up">
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-number" data-value="1000000">1 M+</div>
+      <p>Monthly Visitors</p>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number" data-value="10000">10 K+</div>
+      <p>Verified Facts</p>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number" data-value="150">150+</div>
+      <p>Countries Reached</p>
+    </div>
+  </div>
+</section>
+
+  <section class="values-section">
+    <h2 class="section-title" data-aos="fade-up">Our Values</h2>
+    <div class="values-grid">
+      <div class="value-card" data-aos="fade-up">
+        <i class="fas fa-check-circle"></i>
+        <h3>Accuracy</h3>
+        <p>We are committed to providing verified, well-researched facts you can trust </p>
+      </div>
+      <div class="value-card" data-aos="fade-up" data-aos-delay="100">
+        <i class="fas fa-universal-access"></i>
+        <h3>Accessibility</h3>
+        <p>Knowledge should be accessible to everyone, presented in an easy-to-understand format.</p>
+      </div>
+      <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+        <i class="fas fa-users"></i>
+        <h3>Engagement</h3>
+        <p>We make learning fun and interactive, encouraging curiosity and discussion.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="team-section">
+    <h2 class="section-title" data-aos="fade-up">Our Community</h2>
+    <div class="about-section">
+      <p style="text-align: center; max-width: 800px; margin: 0 auto;" data-aos="fade-up">
+        FactFeined is more than just a website - it's a thriving community of curious minds. From students to professionals, our diverse audience shares a common passion for learning and discovery. We encourage engagement through comments, fact submissions, and community discussions.
+      </p>
+    </div>
+  </section>
+
+  <!-- Reuse your existing footer -->
+ <footer style="background-color: var(--primary); color: white; text-align: center; padding: 1rem; margin-top: 2rem;">
+  <a href="index.html" style="color: var(--accent); text-decoration: none; margin-right: 1rem;">Back to Home</a>
+  ©2024 FactFeined. All rights reserved.
+</footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      offset: 100,
+      once: true
+    });
+
+    // Reuse your existing header scroll effect
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Select all elements with the class .stat-number
+const stats = document.querySelectorAll('.stat-number');
+
+// Function to animate the value
+const animateValue = (obj, start, end, duration) => {
+  let startTimestamp = null;
+
+  const step = (timestamp) => {
+    if (!startTimestamp) startTimestamp = timestamp;
+    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+    const value = Math.floor(progress * (end - start) + start);
+    obj.innerHTML = value.toLocaleString() + '+'; // Add the plus sign
+
+    if (progress < 1) {
+      window.requestAnimationFrame(step);
+    }
+  };
+
+  window.requestAnimationFrame(step);
+};
+
+// Helper function to convert string numbers with "K" and "M" suffixes
+const parseNumberWithSuffix = (value) => {
+  if (value.includes('M')) {
+    return parseFloat(value.replace('M', '')) * 1000000; // Convert M to million
+  } else if (value.includes('K')) {
+    return parseFloat(value.replace('K', '')) * 1000; // Convert K to thousand
+  }
+  return parseFloat(value); // Return as-is if no suffix
+};
+
+// Observer callback for when the numbers enter the viewport
+const observerCallback = (entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const target = entry.target;
+      const finalValue = parseNumberWithSuffix(target.dataset.value); // Get the number from data-value
+      animateValue(target, 0, finalValue, 2000);
+      observer.unobserve(target); // Stop observing after animation
+    }
+  });
+};
+
+// Create an IntersectionObserver
+const observer = new IntersectionObserver(observerCallback, {
+  threshold: 0.5 // Trigger when 50% of the element is visible
+});
+
+// Set up each stat for animation
+stats.forEach(stat => {
+  const rawValue = stat.innerHTML.trim(); // Get the raw value
+  const numericValue = parseNumberWithSuffix(rawValue); // Extract the numeric part
+  stat.dataset.value = numericValue; // Store the numeric value in data-value
+  stat.innerHTML = '0+'; // Initialize the display
+  observer.observe(stat); // Observe the element
+});
+  </script>
+</body>
+</html>
