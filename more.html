@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Did You Know | DYN</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2a4365;
+      --secondary: #ed8936;
+      --accent: #fbd38d;
+      --background: #f7fafc;
+      --text: #2d3748;
+      --card-bg: #fff;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Header Styles */
+   header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+    header.scrolled {
+      padding: 1rem;
+      background: rgba(42, 67, 101, 0.95);
+      backdrop-filter: blur(10px);
+    }
+    body {
+  padding-top: 80px;
+}
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+/* Logo Styles */
+.logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.logo svg {
+  height: 48px;
+  width: 160px;
+  transition: transform 0.3s ease;
+}
+
+    .logo:hover svg {
+     transform: scale(1.05);
+
+}
+.welcome-message {
+  width: 100%;
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.welcome-message p {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: #4A5568;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Ensures text remains readable but not too large on mobile */
+@media screen and (max-width: 640px) {
+  .welcome-message {
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  .welcome-message p {
+    font-size: 1.1rem;
+  }
+}
+    /* Search Bar Styles */
+    .search-container {
+      flex: 1;
+      max-width: 400px;
+      position: relative;
+    }
+
+    .search-bar {
+      width: 100%;
+      padding: 0.75rem 2.5rem;
+      border: none;
+      border-radius: 0.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .search-bar::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .search-bar:focus {
+      outline: none;
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .mobile-search {
+      display: none;
+      width: 100%;
+      margin: 1rem 0;
+    }
+
+    /* Navigation Styles */
+    .nav-toggle {
+      display: none;
+      font-size: 1.5rem;
+      color: var(--accent);
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-menu a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background: var(--secondary);
+      transition: var(--transition);
+    }
+
+    .nav-menu a:hover::after {
+      width: 100%;
+    }
+
+    /* Carousel Styles */
+    .carousel-container {
+      margin-top: 80px;
+      position: relative;
+      overflow: hidden;
+      height: 60vh;
+      min-height: 400px;
+    }
+
+    .carousel {
+      position: relative;
+      height: 100%;
+    }
+
+    .carousel-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80%;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .carousel-slide.active {
+      opacity: 1;
+    }
+
+    .carousel-content {
+      text-align: center;
+      color: #fff;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 1rem;
+      max-width: 600px;
+      backdrop-filter: blur(8px);
+    }
+
+    .carousel-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .carousel-controls {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 1rem;
+    }
+
+    .carousel-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .carousel-dot.active {
+      background: var(--secondary);
+      transform: scale(1.2);
+    }
+
+    /* Facts Section Styles */
+    .facts-section {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: var(--primary);
+    }
+
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .fact-card {
+      background: var(--card-bg);
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
+    }
+
+    .fact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    .fact-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .fact-content {
+      padding: 1.5rem;
+    }
+
+    .fact-title {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .fact-details {
+      height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .fact-details.active {
+      height: auto;
+      opacity: 1;
+      margin-top: 1rem;
+    }
+
+    .read-more-btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: var(--secondary);
+      color: #fff;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .read-more-btn:hover {
+      background: #dd6b20;
+      transform: translateY(-2px);
+    }
+
+    /* Footer Styles */
+    footer {
+      background: var(--primary);
+      color: #fff;
+      padding: 4rem 1.5rem 2rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+    }
+
+    .footer-section h3 {
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      font-size: 1.25rem;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-links a {
+      color: #fff;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--secondary);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-links a {
+      color: #fff;
+      font-size: 1.5rem;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      color: var(--secondary);
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .category-trigger {
+            position: relative;
+            /* Inherits your existing nav link styles */
+        }
+
+        .category-panel {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100vw;
+            background: #1e3a8a;
+            padding: 0.75rem;
+            display: none;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-panel.active {
+            display: block;
+        }
+
+        .category-wrapper {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .category-scroll {
+            overflow-x: hidden;
+            cursor: grab;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .category-container {
+            display: flex;
+            gap: 1rem;
+            padding: 0.25rem 0;
+            user-select: none;
+        }
+
+        .category-item {
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            white-space: nowrap;
+            font-family: system-ui, -apple-system, sans-serif;
+            font-size: 0.9rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .category-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
+        }
+
+        .fade-left, .fade-right {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 50px;
+            pointer-events: none;
+        }
+
+        .fade-left {
+            left: 0;
+            background: linear-gradient(to right, #1e3a8a, transparent);
+        }
+
+        .fade-right {
+            right: 0;
+            background: linear-gradient(to left, #1e3a8a, transparent);
+        }
+
+        .category-scroll.active {
+            cursor: grabbing;
+        }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--secondary);
+      color: #fff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 999;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Newsletter Form */
+    .newsletter-form input {
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      border: none;
+      margin-top: 1rem;
+      width: 100%;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: block;
+      }
+      header-content .search-container {
+        display: none; /* Hide desktop search */
+      }
+      .mobile-search {
+        display: block !important; /* Show mobile search */
+        width: 100%;
+        padding: 1rem;
+      }
+
+      .mobile-search .search-container {
+        display: block !important; /* Show search container in mobile */
+        max-width: 100%;
+      }
+
+      .search-container {
+        display: none;
+      }
+
+      .mobile-search {
+        display: none;
+      }
+
+      .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: var(--primary);
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+        transition: var(--transition);
+        overflow-y: auto;
+      }
+
+      .nav-menu.active {
+        left: 0;
+      }
+
+      .carousel-content h2 {
+        font-size: 2rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+    .carousel-container {
+  margin-top: 80px;
+  position: relative;
+  overflow: hidden;
+  height: 60vh;
+  min-height: 400px;
+}
+
+.carousel {
+  position: relative;
+  height: 100%;
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Modified styles for bottom carousel */
+.bottom-carousel {
+  display: flex;
+  width: 400%;  /* Adjust based on number of slides */
+  animation: slide 20s infinite linear;
+}
+
+.bottom-carousel .carousel-slide {
+  position: relative;
+  opacity: 1;
+  width: 25%;  /* Adjust based on number of slides */
+  animation: none;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);  /* Adjust based on number of slides */
+  }
+}
+
+/* Pause animation on hover */
+.bottom-carousel:hover {
+  animation-play-state: paused;
+}
+
+.carousel-content {
+  text-align: center;
+  padding: 2rem;
+  max-width: 600px;
+}
+
+.carousel-content img {
+  max-width: 100%;
+  height: auto;
+}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <a href="#" class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120">
+          <!-- Logo SVG content remains the same -->
+          <defs>
+            <linearGradient id="dynamicGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#FF416C"/>
+              <stop offset="100%" style="stop-color:#FF4B2B"/>
+            </linearGradient>
+          </defs>
+          <path d="M 30 80 C 100 80, 150 20, 370 20" 
+                stroke="url(#dynamicGradient)" 
+                stroke-width="3" 
+                fill="none"/>
+          <text x="50" y="65" 
+                font-family="Arial" 
+                font-weight="bold" 
+                font-size="48">
+            <tspan fill="#2D3748" style="font-style: italic">Fact</tspan>
+            <tspan fill="#FF416C" style="font-style: italic">Feined</tspan>
+          </text>
+        </svg>
+      </a>
+
+      <!-- Desktop Search now centered -->
+      <div class="search-container">
+        <input type="search" class="search-bar" placeholder="Search...">
+        <i class="fas fa-search search-icon"></i>
+      </div>
+
+      <button class="nav-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="nav-menu">
+        <!-- Mobile Search -->
+        <div class="mobile-search">
+          <div class="search-container">
+            <input type="search" class="search-bar" placeholder="Search...">
+            <i class="fas fa-search search-icon"></i>
+          </div>
+        </div>
+        <a href="https://facts-eight.vercel.app/">Home</a>
+        <a href="#facts">Facts</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#newsletter">Newsletter</a>
+        <a href="#quiz">Quiz</a>
+        
+      </nav>
+      
+      
+
+      
+        </div>
+      </div>
+    </div>
+  </header>
+        
+<div class="welcome-message">
+    <h2>Did you know your next 'aha' moment could be just a click away? Start exploring now."</h2>
+</div>
+
+
+  <!-- Hero Carousel -->
+  <div class="carousel-container">
+    <div class="carousel">
+      <div class="carousel-slide active" style="background-image: url('/api/placeholder/1920/1080')>
+        <div class="carousel-content" data-aos="fade-up">
+          
+          <img src="1734457178817.jpg" alt="this girl">
+          
+        </div>
+      </div>
+
+<div class="carousel-slide" style="background-image: url('1734457178817.jpg')">
+        <div class="carousel-content" data-aos="fade-up">
+          <img src="1733666602971.jpg" alt="this girl">
+        </div>
+      </div>
+    
+    <div class="carousel-slide" style="background-image: url('1734457178817.jpg')">
+        <div class="carousel-content" data-aos="fade-up">
+          <img src="1733666609861.jpg" alt="this girl">
+        </div>
+      </div>
+    
+<div class="carousel-slide" style="background-image: url('1734457178817.jpg')">
+        <div class="carousel-content" data-aos="fade-up">
+          <img src="1733214986792.jpg" alt="this girl">
+        </div>
+      </div>
+    <div class="carousel-slide" style="background-image: url('1734457178817.jpg')">
+        <div class="carousel-content" data-aos="fade-up">
+          <img src="1733214994426.jpg" alt="this girl">
+        </div>
+    </div>
+      <div class="carousel-slide" style="background-image: url('1734457178817.jpg')">
+        <div class="carousel-content" data-aos="fade-up">
+          <img src="1733214976845.jpg" alt="this girl">
+        </div>
+      </div>
+    
+      <div class="carousel-slide" style="background-image: url('/api/placeholder/1920/1080')">
+        <div class="carousel-content" data-aos="fade-up">
+        </div>
+      </div>
+    </div>
+    <div class="carousel-controls">
+      <div class="carousel-dot active"></div>
+      <div class="carousel-dot"></div>
+      <div class="carousel-dot"></div>
+    </div>
+  </div>
+
+  <!-- Facts Section -->
+  
+  
+    <section class="facts-section">
+    <h2 class="section-title" data-aos="fade-up">More Amazing Facts</h2>
+    <div class="facts-grid">
+      <!-- Additional Fact Cards -->
+      <div class="fact-card" data-aos="fade-up">
+        <img src="/api/placeholder/400/300" alt="Space Fact" class="fact-image">
+        <div class="fact-content">
+          <h3 class="fact-title">Honeybees can recognize human faces!</h3>
+          <button class="read-more-btn">Read More</button>
+          <div class="fact-details">
+            <p>Scientists have discovered that honeybees can be trained to recognize human faces. They have excellent vision and can remember patterns, making them surprisingly good at facial recognition. This ability helps them remember which flowers they've visited and which humans regularly interact with their hive.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="fact-card" data-aos="fade-up" data-aos-delay="100">
+        <img src="/api/placeholder/400/300" alt="Animal Fact" class="fact-image">
+        <div class="fact-content">
+          <h3 class="fact-title">A day on Venus is longer than its year!</h3>
+          <button class="read-more-btn">Read More</button>
+          <div class="fact-details">
+            <p>Venus takes 243 Earth days to complete one rotation on its axis (a day), but only 225 Earth days to orbit the Sun (a year). This makes Venus the only planet in our solar system where a day is longer than its year!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="fact-card" data-aos="fade-up" data-aos-delay="200">
+        <img src="/api/placeholder/400/300" alt="History Fact" class="fact-image">
+        <div class="fact-content">
+          <h3 class="fact-title">The Great Wall of China is not visible from space!</h3>
+          <button class="read-more-btn">Read More</button>
+          <div class="fact-details">
+            <p>Contrary to popular belief, the Great Wall of China cannot be seen from space with the naked eye. This myth has been debunked by multiple astronauts. While many human-made structures are visible from low Earth orbit, the Great Wall is actually very difficult to spot.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="fact-card" data-aos="fade-up">
+        <img src="/api/placeholder/400/300" alt="Science Fact" class="fact-image">
+        <div class="fact-content">
+          <h3 class="fact-title">Your brain generates enough electricity to power an LED light!</h3>
+          <button class="read-more-btn">Read More</button>
+          <div class="fact-details">
+            <p>The human brain generates approximately 12-25 watts of electricity when awake - enough to power a small LED light bulb. This electricity is produced by the billions of neurons in our brains communicating with each other through electrical impulses.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="fact-card" data-aos="fade-up" data-aos-delay="100">
+        <img src="/api/placeholder/400/300" alt="Nature Fact" class="fact-image">
+        <div class="fact-content">
+          <h3 class="fact-title">Bananas are berries, but strawberries aren't!</h3>
+          <button class="read-more-btn">Read More</button>
+          <div class="fact-details">
+            <p>Botanically speaking, bananas are berries, while strawberries are not! A berry is a fruit produced from a single flower with one ovary. This means bananas qualify as berries, while strawberries, which come from a flower with multiple ovaries, technically don't.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="fact-card" data-aos="fade-up" data-aos-delay="200">
+        <img src="/api/placeholder/400/300" alt="Technology Fact" class="fact-image">
+        <div class="fact-content">
+          <h3 class="fact-title">The first computer mouse was made of wood!</h3>
+          <button class="read-more-btn">Read More</button>
+          <div class="fact-details">
+            <p>The first computer mouse was invented by Douglas Engelbart in the 1960s and was made of wood! The wooden shell housed two metal wheels, and the term "mouse" was coined because the cable attached to it resembled a tail.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="carousel-container">
+  <div class="carousel bottom-carousel">
+    <div class="carousel-slide">
+      <div class="carousel-content">
+        <img src="/api/placeholder/400/300" alt="Slide 1">
+      </div>
+    </div>
+    <div class="carousel-slide">
+      <div class="carousel-content">
+        <img src="/api/placeholder/400/300" alt="Slide 2">
+      </div>
+    </div>
+    <div class="carousel-slide">
+      <div class="carousel-content">
+        <img src="/api/placeholder/400/300" alt="Slide 3">
+      </div>
+    </div>
+    <div class="carousel-slide">
+      <div class="carousel-content">
+        <img src="/api/placeholder/400/300" alt="Slide 4">
+      </div>
+    </div>
+    <!-- Duplicate first few slides for seamless loop -->
+    <div class="carousel-slide">
+      <div class="carousel-content">
+        <img src="/api/placeholder/400/300" alt="Slide 1">
+      </div>
+    </div>
+    <div class="carousel-slide">
+      <div class="carousel-content">
+        <img src="/api/placeholder/400/300" alt="Slide 2">
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <!-- Footer -->
+  <footer>
+   
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="https://facts-eight.vercel.app/">Home</a></li>
+          <li><a href="#facts">Facts</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#privacy">Privacy Policy</a></li>
+          <li><a href="#terms">Terms of Use</a></li>
+          
+          
+          <li><a href="#advertise">History</a></li>
+          <li><a href="#advertise">Earth</a></li>
+          <li><a href="#advertise">Traveling</a></li>
+          <li><a href="#advertise">Artificial Intelligence</a></li>
+          <li><a href="#advertise">Nature</a></li>
+          <li><a href="#advertise">Science</a></li>
+          
+          
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        
+
+    <div class="footer-bottom">
+   <a href="#" class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120">
+          <!-- Logo SVG content remains the same -->
+          <defs>
+            <linearGradient id="dynamicGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#FF416C"/>
+              <stop offset="100%" style="stop-color:#FF4B2B"/>
+            </linearGradient>
+          </defs>
+          <path d="M 30 80 C 100 80, 150 20, 370 20" 
+                stroke="url(#dynamicGradient)" 
+                stroke-width="3" 
+                fill="none"/>
+          <text x="50" y="65" 
+                font-family="Arial" 
+                font-weight="bold" 
+                font-size="48">
+            <tspan fill="#2D3748" style="font-style: italic">Fact</tspan>
+            <tspan fill="#FF416C" style="font-style: italic">Feined</tspan>
+          </text>
+        </svg>
+      </a>
+    
+      <p>&copy; 2024 FactFeined. All rights reserved.</p>
+      
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <div class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      offset: 100,
+      once: true
+    });
+
+    // Header scroll effect
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile Navigation
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      navToggle.querySelector('i').classList.toggle('fa-bars');
+      navToggle.querySelector('i').classList.toggle('fa-times');
+    });
+
+    // Carousel Functionality
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.carousel-dot');
+    let currentSlide = 0;
+    
+    function showSlide(index) {
+      slides.forEach(slide => slide.classList.remove('active'));
+      dots.forEach(dot => dot.classList.remove('active'));
+      
+      slides[index].classList.add('active');
+      dots[index].classList.add('active');
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentSlide = index;
+        showSlide(currentSlide);
+      });
+    });
+
+    // Auto advance carousel
+    setInterval(nextSlide, 5000);
+
+    // Read More Button Functionality
+    document.querySelectorAll('.read-more-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const details = button.closest('.fact-content').querySelector('.fact-details');
+        if (details) {
+          details.classList.toggle('active');
+          button.textContent = details.classList.contains('active') ? 'Read Less' : 'Read More';
+        }
+      });
+    });
+
+    // Back to Top Button
+    const backToTop = document.querySelector('.back-to-top');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Search Functionality
+    document.querySelectorAll('.search-bar').forEach(searchBar => {
+      searchBar.addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+        const factCards = document.querySelectorAll('.fact-card');
+        
+        factCards.forEach(card => {
+          const title = card.querySelector('.fact-title')?.textContent.toLowerCase() || '';
+          const details = card.querySelector('.fact-details')?.textContent.toLowerCase() || '';
+          
+          if (title.includes(searchTerm) || details.includes(searchTerm)) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+   // Category panel toggle
+    const categoryTrigger = document.querySelector('.category-trigger');
+    const categoryPanel = document.querySelector('.category-panel');
+
+    categoryTrigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        categoryPanel.classList.toggle('active');
+    });
+
+    // Close panel when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!categoryTrigger.contains(e.target) && !categoryPanel.contains(e.target)) {
+            categoryPanel.classList.remove('active');
+        }
+    });
+
+    // Draggable functionality
+    const categoryScroll = document.querySelector('.category-scroll');
+    const categoryContainer = document.querySelector('.category-container');
+    
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    categoryScroll.addEventListener('mousedown', (e) => {
+        isDown = true;
+        categoryScroll.classList.add('active');
+        startX = e.pageX - categoryScroll.offsetLeft;
+        scrollLeft = categoryScroll.scrollLeft;
+    });
+
+    categoryScroll.addEventListener('mouseleave', () => {
+        isDown = false;
+        categoryScroll.classList.remove('active');
+    });
+
+    categoryScroll.addEventListener('mouseup', () => {
+        isDown = false;
+        categoryScroll.classList.remove('active');
+    });
+
+    categoryScroll.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - categoryScroll.offsetLeft;
+        const walk = (x - startX) * 2;
+        categoryScroll.scrollLeft = scrollLeft - walk;
+    });
+
+    // Touch events
+    categoryScroll.addEventListener('touchstart', (e) => {
+        isDown = true;
+        categoryScroll.classList.add('active');
+        startX = e.touches[0].pageX - categoryScroll.offsetLeft;
+        scrollLeft = categoryScroll.scrollLeft;
+    });
+
+    categoryScroll.addEventListener('touchend', () => {
+        isDown = false;
+        categoryScroll.classList.remove('active');
+    });
+
+    categoryScroll.addEventListener('touchmove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.touches[0].pageX - categoryScroll.offsetLeft;
+        const walk = (x - startX) * 2;
+        categoryScroll.scrollLeft = scrollLeft - walk;
+    });
+    // Newsletter Form
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = newsletterForm.querySelector('input').value;
+        if (email) {
+          alert('Thank you for subscribing!');
+          newsletterForm.reset();
+        }
+      });
+    }
+
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          // Close mobile menu if open
+          navMenu.classList.remove('active');
+          navToggle.querySelector('i').classList.add('fa-bars');
+          navToggle.querySelector('i').classList.remove('fa-times');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+    
+    
