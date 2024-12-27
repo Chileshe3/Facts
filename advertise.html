@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advertising | FactFeined</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2a4365;
+      --secondary: #ed8936;
+      --accent: #fbd38d;
+      --background: #f7fafc;
+      --text: #2d3748;
+      --card-bg: #fff;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+      padding-top: 80px;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    header.scrolled {
+      padding: 1rem;
+      background: rgba(42, 67, 101, 0.95);
+      backdrop-filter: blur(10px);
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 0;
+    }
+
+    .logo svg {
+      height: 48px;
+      width: 160px;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover svg {
+      transform: scale(1.05);
+    }
+
+    .hero-section {
+      background: linear-gradient(rgba(42, 67, 101, 0.9), rgba(42, 67, 101, 0.8)),
+                  url('/api/placeholder/1920/400');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .hero-section h1 {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+
+    .hero-section p {
+      font-size: 1.25rem;
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .pricing-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .pricing-card h3 {
+      color: var(--primary);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .price {
+      font-size: 2.5rem;
+      color: var(--secondary);
+      margin: 1.5rem 0;
+      font-weight: bold;
+    }
+
+    .price span {
+      font-size: 1rem;
+      color: var(--text);
+      opacity: 0.8;
+    }
+
+    .features {
+      list-style: none;
+      margin: 2rem 0;
+    }
+
+    .features li {
+      margin: 1rem 0;
+      padding: 0.5rem;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: var(--secondary);
+      color: white;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      transition: var(--transition);
+      font-weight: bold;
+    }
+
+    .cta-button:hover {
+      background: var(--primary);
+      transform: scale(1.05);
+    }
+
+    .benefits-section {
+      padding: 4rem 0;
+      background: white;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .benefit-card {
+      padding: 1.5rem;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .benefit-card i {
+      font-size: 2.5rem;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+    }
+
+    .benefit-card h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .contact-section {
+      background: var(--primary);
+      color: white;
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      margin-bottom: 2rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .contact-item i {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    @media (max-width: 768px) {
+      .hero-section h1 {
+        font-size: 2rem;
+      }
+
+      .container {
+        padding: 1rem;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <a href="#" class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120">
+          <defs>
+            <linearGradient id="dynamicGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#FF416C"/>
+              <stop offset="100%" style="stop-color:#FF4B2B"/>
+            </linearGradient>
+          </defs>
+          <path d="M 30 80 C 100 80, 150 20, 370 20" 
+                stroke="url(#dynamicGradient)" 
+                stroke-width="3" 
+                fill="none"/>
+          <text x="50" y="65" 
+                font-family="Arial" 
+                font-weight="bold" 
+                font-size="48">
+            <tspan fill="#2D3748" style="font-style: italic">Fact</tspan>
+            <tspan fill="#FF416C" style="font-style: italic">Feined</tspan>
+          </text>
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <section class="hero-section" data-aos="fade-up">
+    <h1>Advertise With Us</h1>
+    <p>Reach millions of engaged readers with our premium advertising solutions</p>
+  </section>
+
+  <div class="container">
+    <div class="pricing-grid">
+      <div class="pricing-card" data-aos="fade-up">
+        <h3>Starter</h3>
+        <div class="price">$499<span>/month</span></div>
+        <ul class="features">
+          <li>Standard Display Ads</li>
+          <li>Basic Analytics</li>
+          <li>Monthly Performance Report</li>
+          <li>Email Support</li>
+        </ul>
+        <a href="#contact" class="cta-button">Get Started</a>
+      </div>
+
+      <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
+        <h3>Professional</h3>
+        <div class="price">$999<span>/month</span></div>
+        <ul class="features">
+          <li>Premium Ad Placement</li>
+          <li>Advanced Analytics</li>
+          <li>Weekly Performance Reports</li>
+          <li>Priority Support</li>
+          <li>Custom Ad Formats</li>
+        </ul>
+        <a href="#contact" class="cta-button">Get Started</a>
+      </div>
+
+      <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
+        <h3>Enterprise</h3>
+        <div class="price">Custom<span>/month</span></div>
+        <ul class="features">
+          <li>Exclusive Ad Positions</li>
+          <li>Real-time Analytics</li>
+          <li>Daily Performance Reports</li>
+          <li>24/7 Dedicated Support</li>
+          <li>Custom Integration</li>
+          <li>Content Partnerships</li>
+        </ul>
+        <a href="#contact" class="cta-button">Contact Us</a>
+      </div>
+    </div>
+
+    <section class="benefits-section">
+      <h2 style="text-align: center; color: var(--primary); margin-bottom: 2rem;">Why Advertise With Us?</h2>
+      <div class="benefits-grid">
+        <div class="benefit-card" data-aos="fade-up">
+          <i class="fas fa-users"></i>
+          <h3>Large Audience</h3>
+          <p>Reach millions of engaged readers actively seeking knowledge</p>
+        </div>
+
+        <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
+          <i class="fas fa-bullseye"></i>
+          <h3>Targeted Reach</h3>
+          <p>Connect with specific demographics interested in your offerings</p>
+        </div>
+
+        <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+          <i class="fas fa-chart-line"></i>
+          <h3>Measurable Results</h3>
+          <p>Track performance with detailed analytics and reporting</p>
+        </div>
+
+        <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
+          <i class="fas fa-medal"></i>
+          <h3>Brand Safety</h3>
+          <p>Your ads appear alongside quality, verified content</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2>Ready to Get Started?</h2>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <h3>Email Us</h3>
+          <p>ads@factfeined.com</p>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <h3>Call Us</h3>
+          <p>+1 (555) 123-4567</p>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-comments"></i>
+          <h3>Live Chat</h3>
+          <p>Available 24/7</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background-color: var(--primary); color: white; text-align: center; padding: 1rem; margin-top: 2rem;">
+    <a href="index.html" style="color: var(--accent); text-decoration: none; margin-right: 1rem;">Back to Home</a>
+    ©2024 FactFeined. All rights reserved.
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      offset: 100,
+      once: true
+    });
+
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
